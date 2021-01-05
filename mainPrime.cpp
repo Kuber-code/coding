@@ -1,3 +1,26 @@
+/*
+    TASK DESCRIPTION – algorithmic task #PRIME NUMBER #LAMBDA #
+
+    Task:
+    Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.
+
+    Example:
+    A=[2,3,9,2,5,1,3,7,10]
+    B=[2,1,3,4,3,10,6,6,1,7,10,10,10]
+    C=[2,9,2,5,7,10]
+
+    Notes:
+    1. The time complexity is important – try to write an algorithm with good time complexity and specify it in your answer.
+        ad. Two versions labda and loops
+    2. You can choose any reasonable type present in your chosen language to represent the sequence.
+    3. Make sure the function signature is correct.
+    4. Write your own code to test primality.
+    5. We won't run the code, so don't worry about making it compilable. For example you can skip any header files.
+
+    przyklad:https://gist.github.com/Afolayan/aa432da38845a9dfdc89de96969f75b8
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
