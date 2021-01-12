@@ -89,7 +89,6 @@ int main()
     std::vector<int> c;
     for (auto aidx = a.begin(); aidx != a.end(); aidx++)
     {   
-	
         int occurrences = 0;
         for (auto bidx = b.begin(); bidx != b.end(); bidx++)
         {
