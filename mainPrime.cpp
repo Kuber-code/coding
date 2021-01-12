@@ -2,7 +2,9 @@
     TASK DESCRIPTION – algorithmic task #PRIME NUMBER #LAMBDA #
 
     Task:
-    Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.
+    Write a function that receives two sequences: A and B of integers and returns one sequence C.
+    Sequence C should contain all elements from sequence A (maintaining the order) except those,
+    that are present in sequence B p times, where p is a prime number.
 
     Example:
     A=[2,3,9,2,5,1,3,7,10]
@@ -16,8 +18,6 @@
     3. Make sure the function signature is correct.
     4. Write your own code to test primality.
     5. We won't run the code, so don't worry about making it compilable. For example you can skip any header files.
-
-    przyklad:https://gist.github.com/Afolayan/aa432da38845a9dfdc89de96969f75b8
 
 */
 
@@ -36,7 +36,8 @@ void printIntegersSequence(char sequenceName, std::vector<int>& sequence)
 
 bool isPrimeNumber(int number)
 {
-    bool isPrime = true;    if (number < 2)
+    bool isPrime = true;    
+    if (number < 2)
     {
         isPrime = false;
     }
@@ -54,10 +55,28 @@ bool isPrimeNumber(int number)
     return isPrime;
 }
 
+std::vector<int> getIntigersSequence(char sequenceName)
+{
+    int numberOfElements;
+    std::cout << "Give number of elements of sequence " << sequenceName << " :";
+    std::cin >> numberOfElements;
+    std::vector<int> vector(numberOfElements);
+    //std::cin << vector.push_back() 
+    for(int i = 0; i < numberOfElements; i++){
+        std::cin >> vector[i];
+    }
+    return vector;
+}
+
 int main()
 {
-    std::vector<int> a {2, 3, 9, 2, 5, 1, 3, 7, 10};
-    std::vector<int> b {2, 1, 3, 4, 3, 10, 6, 6, 1, 7, 10, 10, 10};
+    std::vector<int> a;
+    std::vector<int> b;
+    a = getIntigersSequence('A');
+    b = getIntigersSequence('B');
+
+    //std::vector<int> a {2, 3, 9, 2, 5, 1, 3, 7, 10};
+    //std::vector<int> b {2, 1, 3, 4, 3, 10, 6, 6, 1, 7, 10, 10, 10};
 
     std::sort(b.begin(), b.end());
     //b.erase(unique(b.begin(), b.end()), b.end()); // wywala powtórzenia
@@ -66,7 +85,7 @@ int main()
     printIntegersSequence('B', b);
 
 
-    //Version 2
+    //Loop Version
     std::vector<int> c;
     for (auto aidx = a.begin(); aidx != a.end(); aidx++)
     {   
@@ -81,7 +100,7 @@ int main()
             c.push_back(*aidx);
     }
 	
-    //Lambda Version - jako ciekawostka w jednej linijce :)
+    //Lambda Version
     //std::vector<int> c(a);
     //c.erase(remove_if(c.begin(), c.end(),
     //            [&](int cv) {
@@ -91,6 +110,7 @@ int main()
     //            }), c.end());
 	
     printIntegersSequence('C', c);
+    system("pause");
 
     return 0;
 }
