@@ -1,0 +1,101 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string ltrim(const string &);
+string rtrim(const string &);
+
+
+
+/*
+ * Complete the 'canReach' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts following parameters:
+ *  1. INTEGER x1
+ *  2. INTEGER y1
+ *  3. INTEGER x2
+ *  4. INTEGER y2
+ */
+
+#define MIN_X   1
+#define MAX_X   1000
+#define MIN_Y   1
+#define MAX_Y   1000
+
+inline bool isInRange(int begin, int end, int value) {
+    return (begin <= value) && (value <= end);
+}
+
+inline bool stringToBool(string str) {
+    return (str == "Yes");
+}
+
+string canReach(int x1, int y1, int x2, int y2) {
+    bool result;
+    if (!isInRange(MIN_X, MAX_X, x1) || !isInRange(MIN_Y, MAX_Y, y1))
+        result = false;
+    else if ((x1 > x2) || (y1 > y2))
+        result = false;
+    else if ((x1 == x2) && (y1 == y2))
+        result = true;
+    else
+        result = stringToBool(canReach(x1, x1 + y1, x2, y2))
+                    || stringToBool(canReach(x1 + y1, y1, x2, y2));
+    return result ? "Yes" : "No";
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string x1_temp;
+    getline(cin, x1_temp);
+
+    int x1 = stoi(ltrim(rtrim(x1_temp)));
+
+    string y1_temp;
+    getline(cin, y1_temp);
+
+    int y1 = stoi(ltrim(rtrim(y1_temp)));
+
+    string x2_temp;
+    getline(cin, x2_temp);
+
+    int x2 = stoi(ltrim(rtrim(x2_temp)));
+
+    string y2_temp;
+    getline(cin, y2_temp);
+
+    int y2 = stoi(ltrim(rtrim(y2_temp)));
+
+    string result = canReach(x1, y1, x2, y2);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
+
+string ltrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
+
+    return s;
+}
+
+string rtrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end()
+    );
+
+    return s;
+}

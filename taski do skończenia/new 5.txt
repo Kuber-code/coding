@@ -1,0 +1,16 @@
+// you can use includes, for example:
+#include <algorithm>
+
+int solution(vector<int> &A) {
+    int numOfTrims = 0;
+
+    for (auto i = A.begin() + 1; i != A.end() - 1; i++) {
+        auto p = i - 1;
+        auto n = i + 1;
+        if (!((*p < *i) && (*i > *n)) && !((*p > *i) && (*i < *n))) {
+            numOfTrims++;
+        }
+    }
+
+    return numOfTrims;
+}

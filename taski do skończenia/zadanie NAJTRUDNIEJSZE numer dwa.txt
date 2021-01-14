@@ -1,0 +1,60 @@
+CREATE TABLE line1000 (
+    id int not null PRIMARY KEY,
+    name varchar(255) not null,
+    weight int not null,
+    turn int unique not null,
+    check (weight > 0)
+);
+
+SELECT
+    name,
+    nested.total
+FROM
+    (
+    SELECT
+        name
+        SUM (amount) AS total
+    FROM
+        line1000
+    GROUP BY
+        turn
+    ORDER BY total;	
+
+) AS nested   
+     
+    
+
+
+
+
+
+
+
+	
+DECLARE @weight INTIGER,
+        @counter INTIGER;
+SET @weight := 0,
+    @counter := 1;
+    
+WHILE ( @weight < 1000 )
+BEGIN
+
+    @weight := @weight + SELECT weight FROM line WHERE turn = @counter;
+
+    if (@weight >= 1000)
+	BEGIN
+    	SELECT name FROM line WHERE turn = @counter;
+	END
+    PRINT 'The weight value is = ' + CONVERT(VARCHAR, @weight);
+    SET @counter  := @counter + 1;
+END
+
+
+
+CREATE TABLE line (
+    id int not null PRIMARY KEY,
+    name varchar(255) not null,
+    weight int not null,
+    turn int unique not null,
+    check (weight > 0)
+);
