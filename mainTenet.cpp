@@ -10,35 +10,68 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <cstring>
 
 using namespace std;
 
-
-bool isWordTenet(string wordString){
-
-    //stringToVector(wordString);
-    
-    bool result = true; 
-    wordString = "Tenet";
+void printString(string wordString){
     for(char& c : wordString) {
         cout << c;
         //do_things_with(c);
     }
-    string reversedString;
-    reversedString = reverse(wordString.begin(), wordString.end());
-    for(char& c : reversedString) {
-        cout << c;
-        //do_things_with(c);
-    }
+    cout << endl;
+}
 
-    cout << reversedString;
-    return result;
+void showWords(string wordString){
+    cout << "String: " << endl;
+    cout << wordString << endl; 
+    string reversedString = wordString;
+    reverse(reversedString.begin(), reversedString.end());
+    cout << "Reversed String: " << endl;
+    cout << reversedString << endl;
+}
+
+void isWordTenet(string wordString){
+    bool result;
+    std::vector<char> wordChars (wordString.begin(), wordString.end());
+    auto length = wordChars.size();
+
+    for(auto i = 0; i < length; i++){
+
+        //Showing sequenced characters of string
+        //cout << " wordChars[i] = " << wordChars[i] << endl;
+        //cout << " wordChars[length-i-1] = " << wordChars[length-i-1] << endl;
+
+        if(wordChars[i] != wordChars[length-i-1]){
+            result = false;
+            //cout << "word in NOT a palindrom" << result << endl;
+            break;
+        }
+        else{
+            result = true;
+            //cout << "word in  a palindrom" << result << endl;
+        }
+    }
+    if (result){
+        cout << wordString << " is a palindrom" << endl;
+    }
+    else{
+        cout << wordString << " is NOT a palindrom" << endl;
+    }  
 }
 
 int main(){
+
+    //string wordString = "tenet";
+
+    cout << "Put your word" << endl; 
     string wordString;
+    cin >> wordString;
+
+    //showWords(wordString);
     isWordTenet(wordString);
-    
+ 
+    system("pause");
     return 0;
 }
 
