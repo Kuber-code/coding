@@ -22,5 +22,7 @@ int main(){
     cin >> M;
 
     cout << "Angle between hands of clock: " << Angle(H, M) << " degrees";
+    
+    system("pause");
     return 0;
 }

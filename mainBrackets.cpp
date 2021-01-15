@@ -31,5 +31,7 @@ int main (){
     string S = "(())())))";
     cout << "starting Brackets: " << S << endl;
     BalancedBrackets(S);
+    
+    system("pause");
     return 0;
 }

@@ -20,6 +20,8 @@ sort()
 // przetwarzanie obrazu;
 
 int main(){
-getNFibonnaciElement(); 
+getNFibonnaciElement();
+
+system("pause");
 return 0;
 }
