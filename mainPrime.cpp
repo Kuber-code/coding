@@ -19,6 +19,24 @@
     4. Write your own code to test primality.
     5. We won't run the code, so don't worry about making it compilable. For example you can skip any header files.
 
+/////////////////////////////////////////////////////////
+TO DO:
+    Write a function that receives two sequences: A and B of integers and returns one sequence C.
+
+problem nr 1., brakuje tej funkcji
+
+    1. The time complexity is important – try to write an algorithm with good time complexity and specify it in your answer.
+
+problem nr 2., algorytm nie ma dobrej złożoności obliczeniowej
+
+problem nr 3., brak w Twojej odpowiedzi informacji jaka jest ta złożoność
+
+    3. Make sure the function signature is correct.
+
+to znowu problem nr 1.
+
+///////////////////////////////////////////////////////////
+
 */
 
 #include <iostream>
